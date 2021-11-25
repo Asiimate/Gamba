@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckGamesComponent } from './check-games/check-games.component';
@@ -9,6 +10,7 @@ const routes: Routes = [
   {path: 'home', pathMatch: 'full', component: HomeComponent},
   {path: 'guess', pathMatch: 'full', component: NewGuessComponent},
   {path: 'check', pathMatch: 'full', component: CheckGamesComponent},
+  {path: 'login', pathMatch: 'full', component: LoginComponent},
 ];
 
 @NgModule({

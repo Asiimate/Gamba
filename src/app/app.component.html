@@ -2,9 +2,28 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>GAMBA by Linden & Rothenberg</span>
-      <a mat-stroked-button routerLink="/home" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>Home</a>
-      <a mat-stroked-button routerLink="/guess" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon> New Guess</a>
-      <a mat-stroked-button routerLink="/check" routerLinkActive="active"><mat-icon aria-hidden="false" aria-label="attach_money icon">attach_money</mat-icon>Check Games</a>
+      <a mat-stroked-button routerLink="/home" routerLinkActive="active"
+        ><mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon
+        >Home</a
+      >
+      <a mat-stroked-button routerLink="/guess" routerLinkActive="active"
+        ><mat-icon aria-hidden="false" aria-label="add_circle_outline icon"
+          >add_circle_outline</mat-icon
+        >
+        New Guess</a
+      >
+      <a mat-stroked-button routerLink="/check" routerLinkActive="active"
+        ><mat-icon aria-hidden="false" aria-label="attach_money icon"
+          >attach_money</mat-icon
+        >Check Games</a
+      >
+      <span class="spacer"></span>
+      <div *ngIf="1 == 1">
+        <a mat-stroked-button routerLink="/login" routerLinkActive="active"
+          ><mat-icon aria-hidden="false" aria-label="input icon">input</mat-icon
+          >Login</a
+        >
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
