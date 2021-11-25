@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config($font-family: 'Exo');
+
+body {
+    background-color: #f4f3f3;
+    margin: 0;
+    app-root * {
+        font-family: 'Exo', sans-serif;
+    }
+}
+.card{
+    width: 400px;
+    margin: 5% auto;
+  }

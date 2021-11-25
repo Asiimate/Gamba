@@ -1,11 +1,26 @@
-a{
-  margin: 10px;
-}
+header {
+  a{
+    margin: 10px;
+  }
+  
+  .active{
+    background-color:#830a79;
+  }
+  
+  .spacer{
+    flex: 1 1 auto;
+  }
 
-.active{
-  background-color:#830a79;
-}
-
-.spacer{
-  flex: 1 1 auto;
+  .logo{
+    background-image: url('../assets/logo.png');
+    height: 48px;
+    width: 48px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+  }
+  .mat-icon{
+    vertical-align: middle;
+    margin: 0 5px;
+  }
 }

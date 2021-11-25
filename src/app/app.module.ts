@@ -11,6 +11,7 @@ import { NewGuessComponent } from './new-guess/new-guess.component';
 import { CheckGamesComponent } from './check-games/check-games.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewGuessComponent,
     CheckGamesComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

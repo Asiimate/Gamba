@@ -1,6 +1,6 @@
 <mat-card class="card">
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title>Registration</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="userGroup">
@@ -23,9 +23,22 @@
             <mat-form-field>
               <input
                 matInput
+                name="fullname"
+                formControlName="fullname"
+                placeholder="Full Name"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input
+                matInput
                 name="password"
-                formControlName="password"
                 placeholder="Password"
+                formControlName="password"
                 type="password"
                 required
               />
@@ -34,10 +47,12 @@
         </tr>
       </table>
     </form>
-    Don't have an account yet?
-    <a routerLink="/register" routerLinkActive="active">Register here</a>
+    Already have an account?
+    <a routerLink="/login" routerLinkActive="active">Login here</a>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="login()">Login</button>
+    <button mat-raised-button color="primary" (click)="register()">
+      Register
+    </button>
   </mat-card-actions>
 </mat-card>
