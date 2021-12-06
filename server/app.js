@@ -5,6 +5,12 @@ var mongoose = require('mongoose');
 const { Console } = require('console');
 
 app.use(bodyParser.json());
+//Work-around for CORS-Headers
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 User = require('./models/user');
 Draw = require('./models/draw');
 Tip = require('./models/tip');

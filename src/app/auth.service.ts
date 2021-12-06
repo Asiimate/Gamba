@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { of, Subject } from 'rxjs';
 import { User } from './models/user.model';
+import { Md5 } from 'ts-md5/dist/md5';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private REST_API: string = "http://localhost:3000/api/";
   private user$ = new Subject<User>();
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   get user() {
@@ -27,10 +30,15 @@ export class AuthService {
   }
 
   register(user: any){
-    // make API call to save user to database
+    //hash User password
+    user.password = Md5.hashStr(user.password);
+    //make API call to save to database
+    this.http.post(`${this.REST_API}users`, user).subscribe(result => {
+      if(!result) return;
+      this.setUser(user);
+      console.warn('authservice.register', user);
+    });
     // update the user subject
-    this.setUser(user);
-    console.warn('authservice.register', user);
     return of(user);
   }
 
