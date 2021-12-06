@@ -19,11 +19,19 @@
         >Check Games</a
       >
       <span class="spacer"></span>
-      <div *ngIf="1 == 1">
+      <div *ngIf="!user">
         <a mat-stroked-button routerLink="/login" routerLinkActive="active"
           ><mat-icon aria-hidden="false" aria-label="input icon">input</mat-icon
           >Login</a
         >
+      </div>
+      <div *ngIf="user">
+        Hello, {{user.fullname}}
+        <button mat-stroked-button (click)="logout()">
+          <mat-icon aria-hidden="false" aria-label="assignment_return icon"
+            >assignment_return</mat-icon
+          >Logout</button
+          >
       </div>
     </mat-toolbar-row>
   </mat-toolbar>

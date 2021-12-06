@@ -21,10 +21,23 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    if(!this.userGroup.valid) return;
     const user = this.userGroup.getRawValue();
     this.authService.register(user).subscribe(result => {
       if(!result) return
-      this.router.navigate(['/login'])
+      this.router.navigate(['/home'])
     })
+  }
+
+  get fullname() {
+    return this.userGroup.get('fullname');
+  }
+
+  get username() {
+    return this.userGroup.get('username');
+  }
+
+  get password() {
+    return this.userGroup.get('password');
   }
 }
