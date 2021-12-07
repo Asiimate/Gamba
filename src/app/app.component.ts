@@ -1,7 +1,7 @@
 import { User } from './models/user.model';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   title = 'Gamba';
   user!: User;
   userSubscription: Subscription = new Subscription();
@@ -17,6 +17,9 @@ export class AppComponent implements OnDestroy {
     this.userSubscription = this.authService.user.subscribe(user => this.user = user);
   }
 
+  ngOnInit(): void {
+    this.authService.logout();
+  }
   ngOnDestroy(): void {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();

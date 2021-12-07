@@ -1,3 +1,7 @@
+import { Router } from '@angular/router';
+import { User } from './../models/user.model';
+import { AuthService } from './../auth.service';
+import { LottoService } from './../lotto.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewGuessComponent implements OnInit {
 
-  constructor() { }
+  numbers: number[] = [];
+  error: string = "";
+  constructor(private lottoService: LottoService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
+
+  addToTip(num: number) {
+    if (!this.numbers.includes(num) && this.numbers.length < 6) {
+      this.numbers.push(num)
+    }
+    else if (this.numbers.includes(num)) {
+      const index = this.numbers.indexOf(num);
+      if (index > -1) {
+        this.numbers.splice(index, 1);
+        this.error = "";
+      }
+    }
+    else {
+      this.error = "You already selected 6 numbers.";
+    }
+  }
+
+  makeGuess() {
+    this.lottoService.submitGuess(this.numbers);
+    this.router.navigate(['/check']);
+  }
 }

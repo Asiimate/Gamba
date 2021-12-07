@@ -38,7 +38,8 @@
         >
       </div>
       <div *ngIf="user">
-        Hello, {{ user.fullname }}
+        <mat-icon aria-hidden="false" aria-label="face icon">face</mat-icon> {{user.fullname}}
+        <span class="small-spacer"></span>
         <button mat-stroked-button (click)="logout()">
           <mat-icon aria-hidden="false" aria-label="assignment_return icon"
             >assignment_return</mat-icon

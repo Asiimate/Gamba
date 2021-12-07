@@ -1,9 +1,20 @@
 <mat-card class="card">
-  <mat-card-header
-    ><h2>WELCOME TO GAMBA</h2><mat-card-title></mat-card-title
-  ></mat-card-header>
+  <mat-card-header>
+    <div class="center full-width"><h1>WELCOME TO GAMBA</h1></div>
+  </mat-card-header>
   <mat-card-content>
-      <div class="content">Start your gambling journey today! <br><br>
-      <img src="../assets/3x.gif"></div>
-    </mat-card-content>
+    <div class="content">
+      <span *ngIf="!currentUser"
+        >Start your gambling journey today! Just log in!
+      </span>
+      <span *ngIf="currentUser && !currentUser.isEmployee"
+        >Welcome, {{ currentUser.fullname }}! You feeling lucky today?</span
+      >
+      <span *ngIf="currentUser && currentUser.isEmployee">
+        Welcome, {{ currentUser.fullname }}! Time to get to work!
+      </span>
+      <br /><br />
+      <img src="../assets/3x.gif" />
+    </div>
+  </mat-card-content>
 </mat-card>

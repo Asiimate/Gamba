@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Subject } from 'rxjs';
+import { of, Subject, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators'
 import { User } from './models/user.model';
 import { Md5 } from 'ts-md5/dist/md5';
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   private REST_API: string = "http://localhost:3000/api/";
-  private user$ = new Subject<User>();
+  private user$ = new BehaviorSubject<any>([]);
   constructor(private http: HttpClient) { }
 
 
@@ -40,6 +40,10 @@ export class AuthService {
   }
 
   register(user: any){
+    //make user an admin, if admin is given name (for simpler testing)
+    if(user.username == "admin"){
+      user.isEmployee = true;
+    }
     //hash User password
     user.password = Md5.hashStr(user.password);
     //make API call to save to database

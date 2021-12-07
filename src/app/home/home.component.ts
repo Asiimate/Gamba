@@ -1,7 +1,6 @@
+import { AuthService } from './../auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth.service';
 import { User } from '../models/user.model';
 
 @Component({
@@ -10,7 +9,11 @@ import { User } from '../models/user.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  constructor() {
+
+  currentUser!: User;
+  userSubscription!: Subscription;
+  constructor(private authService: AuthService) {
+    this.userSubscription = this.authService.user.subscribe(result => this.currentUser = result);
   }
   ngOnDestroy(): void {
     
