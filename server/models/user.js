@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var asyncHandler = require('express-async-handler');
 
 // Schema for users
 var userSchema = mongoose.Schema({
@@ -58,4 +59,19 @@ module.exports.deleteUser = function(id, callback){
 // Get User by ID
 module.exports.getUserById = function(id, callback){
     User.findById(id, callback);
+}
+
+//Authenticate User
+module.exports.getUserByNameAndPassword = async function(username, password) {
+    let user = await User.findOne({username});
+
+    if( isUserValid(user, password, user.password)){
+        user = user.toObject();
+        delete user.password;
+        return user;
+    } else return null;
+}
+
+function isUserValid(user, password, hashedpassword) {
+    return user && password == hashedpassword;
 }

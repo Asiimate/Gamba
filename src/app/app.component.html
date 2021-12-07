@@ -3,21 +3,27 @@
     <mat-toolbar-row>
       <span class="logo"></span>
       <span>GAMBA by Linden & Rothenberg</span>
-      <a mat-stroked-button routerLink="/home" routerLinkActive="active"
-        ><mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon
-        >Home</a
-      >
-      <a mat-stroked-button routerLink="/guess" routerLinkActive="active"
-        ><mat-icon aria-hidden="false" aria-label="add_circle_outline icon"
-          >add_circle_outline</mat-icon
+      <div>
+        <a mat-stroked-button routerLink="/home" routerLinkActive="active"
+          ><mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon
+          >Home</a
         >
-        New Guess</a
-      >
-      <a mat-stroked-button routerLink="/check" routerLinkActive="active"
-        ><mat-icon aria-hidden="false" aria-label="attach_money icon"
-          >attach_money</mat-icon
-        >Check Games</a
-      >
+      </div>
+      <div *ngIf="user && !user.isEmployee">
+        <a mat-stroked-button routerLink="/guess" routerLinkActive="active"
+          ><mat-icon aria-hidden="false" aria-label="add_circle_outline icon"
+            >add_circle_outline</mat-icon
+          >
+          New Guess</a
+        >
+      </div>
+      <div *ngIf="user && !user.isEmployee">
+        <a mat-stroked-button routerLink="/check" routerLinkActive="active"
+          ><mat-icon aria-hidden="false" aria-label="attach_money icon"
+            >attach_money</mat-icon
+          >Check Games</a
+        >
+      </div>
       <span class="spacer"></span>
       <div *ngIf="!user">
         <a mat-stroked-button routerLink="/login" routerLinkActive="active"
@@ -26,12 +32,12 @@
         >
       </div>
       <div *ngIf="user">
-        Hello, {{user.fullname}}
+        Hello, {{ user.fullname }}
         <button mat-stroked-button (click)="logout()">
           <mat-icon aria-hidden="false" aria-label="assignment_return icon"
             >assignment_return</mat-icon
-          >Logout</button
-          >
+          >Logout
+        </button>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>

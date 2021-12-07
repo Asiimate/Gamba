@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-const { Console } = require('console');
+const asyncHandler = require('express-async-handler');
 
 app.use(bodyParser.json());
 //Work-around for CORS-Headers
@@ -38,7 +38,8 @@ app.get('/api/users', function(req, res){
 
 //Get User by ID
 app.get('/api/users/:_id', function(req, res){
-    User.getUserById(req.params._id, function(err, user){
+    var id = req.params._id
+    User.getUserById(id, function(err, user){
         if(err){
             throw err;
         }
@@ -83,6 +84,16 @@ app.put('/api/users/:_id', function(req, res){
         console.log(`User ${id} updated.`);
     });
 });
+
+//Authenticate User
+app.post('/api/users/login', asyncHandler(login));
+async function login(req, res, next) {
+    const user = req.body;
+    console.log(`Searching for user ${user}`);
+    const savedUser = await User.getUserByNameAndPassword(user.username, user.password);
+    res.json(savedUser);
+}
+
 
 /* DRAWS FUNCTIONALITIES */
 
@@ -167,8 +178,20 @@ app.put('/api/tips/:_id', function(req, res){
         if(err){
             throw err;
         }
-        res.json(tip)
+        res.json(tip);
         console.log(`Tip ${id} updated.`);
+    });
+});
+
+//Delete Tip
+app.delete('/api/tips/:_id', function(req, res){
+    var id = req.params._id;
+    Tip.deleteTip(id, function(err, tip){
+        if(err){
+            throw err;
+        }
+        res.json(tip);
+        console.log(`Tip ${id} has been deleted.`);
     });
 });
 
