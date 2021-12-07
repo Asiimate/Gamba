@@ -1,67 +1,375 @@
-<mat-card class="lotto-card">
-  <mat-card-header>
-    <mat-card-title>MAKE A GUESS!</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="button-container">
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(1)" (click)="addToTip(1)">1</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(2)" (click)="addToTip(2)">2</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(3)" (click)="addToTip(3)">3</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(4)" (click)="addToTip(4)">4</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(5)" (click)="addToTip(5)">5</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(6)" (click)="addToTip(6)">6</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(7)" (click)="addToTip(7)">7</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(8)" (click)="addToTip(8)">8</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(9)" (click)="addToTip(9)">9</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(10)" (click)="addToTip(10)">10</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(11)" (click)="addToTip(11)">11</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(12)" (click)="addToTip(12)">12</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(13)" (click)="addToTip(13)">13</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(14)" (click)="addToTip(14)">14</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(15)" (click)="addToTip(15)">15</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(16)" (click)="addToTip(16)">16</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(17)" (click)="addToTip(17)">17</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(18)" (click)="addToTip(18)">18</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(19)" (click)="addToTip(19)">19</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(20)" (click)="addToTip(20)">20</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(21)" (click)="addToTip(21)">21</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(22)" (click)="addToTip(22)">22</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(23)" (click)="addToTip(23)">23</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(24)" (click)="addToTip(24)">24</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(25)" (click)="addToTip(25)">25</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(26)" (click)="addToTip(26)">26</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(27)" (click)="addToTip(27)">27</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(28)" (click)="addToTip(28)">28</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(29)" (click)="addToTip(29)">29</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(30)" (click)="addToTip(30)">30</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(31)" (click)="addToTip(31)">31</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(32)" (click)="addToTip(32)">32</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(33)" (click)="addToTip(33)">33</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(34)" (click)="addToTip(34)">34</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(35)" (click)="addToTip(35)">35</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(36)" (click)="addToTip(36)">36</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(37)" (click)="addToTip(37)">37</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(38)" (click)="addToTip(38)">38</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(39)" (click)="addToTip(39)">39</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(40)" (click)="addToTip(40)">40</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(41)" (click)="addToTip(41)">41</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(42)" (click)="addToTip(42)">42</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(43)" (click)="addToTip(43)">43</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(44)" (click)="addToTip(44)">44</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(45)" (click)="addToTip(45)">45</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(46)" (click)="addToTip(46)">46</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(47)" (click)="addToTip(47)">47</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(48)" (click)="addToTip(48)">48</button>
-      <button mat-raised-button [disabled]="numbers.length == 6 && !numbers.includes(49)" (click)="addToTip(49)">49</button>
-    </div>
-    <div *ngIf="error">
-        <mat-error>{{error}}</mat-error>
-    </div>
-    <br>
-    <div class="big"> Your current picks: <span  *ngFor="let num of numbers">{{num}} </span></div>
-    <br>
-    <div class="center">
-    <button mat-raised-button color="primary" [disabled]="numbers.length !== 6" (click)="makeGuess()">Make Guess</button>
-    </div>
-  </mat-card-content>
-</mat-card>
+<div *ngIf="user && !user.isEmployee">
+  <mat-card class="lotto-card">
+    <mat-card-header>
+      <mat-card-title>MAKE A GUESS!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="button-container">
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(1)"
+          (click)="addToTip(1)"
+        >
+          1
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(2)"
+          (click)="addToTip(2)"
+        >
+          2
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(3)"
+          (click)="addToTip(3)"
+        >
+          3
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(4)"
+          (click)="addToTip(4)"
+        >
+          4
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(5)"
+          (click)="addToTip(5)"
+        >
+          5
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(6)"
+          (click)="addToTip(6)"
+        >
+          6
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(7)"
+          (click)="addToTip(7)"
+        >
+          7
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(8)"
+          (click)="addToTip(8)"
+        >
+          8
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(9)"
+          (click)="addToTip(9)"
+        >
+          9
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(10)"
+          (click)="addToTip(10)"
+        >
+          10
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(11)"
+          (click)="addToTip(11)"
+        >
+          11
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(12)"
+          (click)="addToTip(12)"
+        >
+          12
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(13)"
+          (click)="addToTip(13)"
+        >
+          13
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(14)"
+          (click)="addToTip(14)"
+        >
+          14
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(15)"
+          (click)="addToTip(15)"
+        >
+          15
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(16)"
+          (click)="addToTip(16)"
+        >
+          16
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(17)"
+          (click)="addToTip(17)"
+        >
+          17
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(18)"
+          (click)="addToTip(18)"
+        >
+          18
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(19)"
+          (click)="addToTip(19)"
+        >
+          19
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(20)"
+          (click)="addToTip(20)"
+        >
+          20
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(21)"
+          (click)="addToTip(21)"
+        >
+          21
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(22)"
+          (click)="addToTip(22)"
+        >
+          22
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(23)"
+          (click)="addToTip(23)"
+        >
+          23
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(24)"
+          (click)="addToTip(24)"
+        >
+          24
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(25)"
+          (click)="addToTip(25)"
+        >
+          25
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(26)"
+          (click)="addToTip(26)"
+        >
+          26
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(27)"
+          (click)="addToTip(27)"
+        >
+          27
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(28)"
+          (click)="addToTip(28)"
+        >
+          28
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(29)"
+          (click)="addToTip(29)"
+        >
+          29
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(30)"
+          (click)="addToTip(30)"
+        >
+          30
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(31)"
+          (click)="addToTip(31)"
+        >
+          31
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(32)"
+          (click)="addToTip(32)"
+        >
+          32
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(33)"
+          (click)="addToTip(33)"
+        >
+          33
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(34)"
+          (click)="addToTip(34)"
+        >
+          34
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(35)"
+          (click)="addToTip(35)"
+        >
+          35
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(36)"
+          (click)="addToTip(36)"
+        >
+          36
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(37)"
+          (click)="addToTip(37)"
+        >
+          37
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(38)"
+          (click)="addToTip(38)"
+        >
+          38
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(39)"
+          (click)="addToTip(39)"
+        >
+          39
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(40)"
+          (click)="addToTip(40)"
+        >
+          40
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(41)"
+          (click)="addToTip(41)"
+        >
+          41
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(42)"
+          (click)="addToTip(42)"
+        >
+          42
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(43)"
+          (click)="addToTip(43)"
+        >
+          43
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(44)"
+          (click)="addToTip(44)"
+        >
+          44
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(45)"
+          (click)="addToTip(45)"
+        >
+          45
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(46)"
+          (click)="addToTip(46)"
+        >
+          46
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(47)"
+          (click)="addToTip(47)"
+        >
+          47
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(48)"
+          (click)="addToTip(48)"
+        >
+          48
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(49)"
+          (click)="addToTip(49)"
+        >
+          49
+        </button>
+      </div>
+      <div *ngIf="error">
+        <mat-error>{{ error }}</mat-error>
+      </div>
+      <br />
+      <div class="big">
+        Your current picks: <span *ngFor="let num of numbers">{{ num }} </span>
+      </div>
+      <br />
+      <div class="center">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="numbers.length !== 6"
+          (click)="makeGuess()"
+        >
+          Make Guess
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="!user || user.isEmployee">
+  <mat-error class="big">Permission denied!</mat-error>
+</div>

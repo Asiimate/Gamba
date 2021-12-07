@@ -1,1 +1,6 @@
-<p>check-games works!</p>
+<div *ngIf="user && !user.isEmployee">
+
+</div>
+<div *ngIf="!user || user.isEmployee">
+    <mat-error class="big">Permission denied!</mat-error>
+</div>

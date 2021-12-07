@@ -3,6 +3,7 @@ import { User } from './../models/user.model';
 import { AuthService } from './../auth.service';
 import { LottoService } from './../lotto.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-guess',
@@ -13,7 +14,10 @@ export class NewGuessComponent implements OnInit {
 
   numbers: number[] = [];
   error: string = "";
-  constructor(private lottoService: LottoService, private router: Router) {
+  userSubscription!: Subscription;
+  user!: User;
+  constructor(private lottoService: LottoService, private router: Router, private authService: AuthService) {
+    this.userSubscription = this.authService.user.subscribe(res => this.user = res);
   }
 
   ngOnInit(): void {
