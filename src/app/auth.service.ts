@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { of, Subject, throwError } from 'rxjs';
-import { switchMap, map, catchError } from 'rxjs/operators'
+import { of, Subject } from 'rxjs';
+import { switchMap } from 'rxjs/operators'
 import { User } from './models/user.model';
 import { Md5 } from 'ts-md5/dist/md5';
 import { HttpClient } from '@angular/common/http';
@@ -29,11 +29,6 @@ export class AuthService {
           console.log(`User found`, foundUser);
           return of(foundUser)
         }
-      ),
-      catchError(e =>{
-        console.log('Your login details could not be verified. Please try again!', e)
-        return throwError('Your login details could not be verified. Please try again!')
-      }
       )
     )
   }

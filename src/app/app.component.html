@@ -24,6 +24,12 @@
           >Check Games</a
         >
       </div>
+      <div *ngIf="user && user.isEmployee">
+        <a mat-stroked-button routerLink="/draw" routerLinkActive="active">
+          <mat-icon aria-hidden="false" aria-label="update icon">update</mat-icon>
+          New Draw
+        </a>
+      </div>
       <span class="spacer"></span>
       <div *ngIf="!user">
         <a mat-stroked-button routerLink="/login" routerLinkActive="active"

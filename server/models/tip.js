@@ -20,7 +20,8 @@ var tipSchema = mongoose.Schema({
         default: Date.now
     },
     winningclass: {
-        type: String
+        type: String,
+        default: "Not drawn yet"
     }
 });
 

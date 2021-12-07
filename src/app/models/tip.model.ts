@@ -3,5 +3,5 @@ export interface Tip {
     dailynumber: number;
     numbers: number[];
     date: Date;
-    winningclass?: string;
+    winningclass: string;
 }

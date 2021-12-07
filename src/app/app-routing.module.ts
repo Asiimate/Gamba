@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CheckGamesComponent } from './check-games/check-games.component';
 import { HomeComponent } from './home/home.component';
 import { NewGuessComponent } from './new-guess/new-guess.component';
+import { NewDrawComponent } from './new-draw/new-draw.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'check', pathMatch: 'full', component: CheckGamesComponent},
   {path: 'login', pathMatch: 'full', component: LoginComponent},
   {path: 'register', pathMatch: 'full', component: RegisterComponent},
+  {path: 'draw', pathMatch: 'full', component: NewDrawComponent},
 ];
 
 @NgModule({
