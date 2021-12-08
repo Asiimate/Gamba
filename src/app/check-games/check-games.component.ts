@@ -1,3 +1,5 @@
+import { Tip } from './../models/tip.model';
+import { LottoService } from './../lotto.service';
 import { User } from './../models/user.model';
 import { AuthService } from './../auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -11,16 +13,21 @@ import { Subscription } from 'rxjs';
 export class CheckGamesComponent implements OnInit, OnDestroy {
 
   user!: User
-  userSubscription!: Subscription;
-  constructor(private authService: AuthService) {
-    this.userSubscription = this.authService.user.subscribe(res => this.user = res);
+  subscription!: Subscription;
+  allTips!: Tip[];
+  constructor(private authService: AuthService, private lottoService: LottoService) {
+    this.subscription = this.authService.user.subscribe(res => this.user = res);
   }
 
   ngOnDestroy(): void {
-    this.userSubscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   ngOnInit(): void {
+    this.subscription = this.lottoService.getUserTips(this.user.username).subscribe(result => {
+      if(!result) return
+      this.allTips = result.reverse();
+    });
   }
 
 }

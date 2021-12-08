@@ -89,7 +89,7 @@ app.put('/api/users/:_id', function(req, res){
 app.post('/api/users/login', asyncHandler(login));
 async function login(req, res, next) {
     const user = req.body;
-    console.log(`Searching for user ${user}`);
+    console.log(`Searching for user`, user);
     const savedUser = await User.getUserByNameAndPassword(user.username, user.password);
     res.json(savedUser);
 }
@@ -144,6 +144,7 @@ app.delete('/api/draws/:_id', function(req, res){
         console.log(`Draw ${id} deleted.`);
     });
 });
+
 
 /* TIPS FUNCTIONALITIES */
 
@@ -206,6 +207,17 @@ app.get('/api/tips/username/:username', function(req, res){
         console.log(`Get tips for username ${username} successful.`);
     });
 });
+
+//Get undrawn tips
+app.get('/api/tips/undrawn', function(req, res){
+    Tip.getUndrawnTips(function(err, tips){
+        if(err){
+            throw err;
+        }
+        res.json(tips);
+        console.log(`Get undrawn tips successfull.`);
+    })
+})
 
 app.listen(3000);
 console.log('Running on Port 3000...');

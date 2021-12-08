@@ -1,6 +1,25 @@
 <div *ngIf="user && !user.isEmployee">
-
+  <div *ngIf="allTips" class="game-container">
+    <div *ngFor="let tip of allTips" class="guess">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Your guess from {{ tip.date }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Your numbers: {{ tip.numbers }}</span> <br />
+          <span>Your daily number: {{ tip.dailynumber }}</span> <br />
+          <span>Your winning class: {{ tip.winningclass }}</span> <br />
+          <div *ngIf="tip.winningclass != 'Not drawn yet'">
+            <span>Numbers drawn: </span> <br />
+            <span>Dailynumber drawn: </span> <br />
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <br />
+      <br />
+    </div>
+  </div>
 </div>
 <div *ngIf="!user || user.isEmployee">
-    <mat-error class="big">Permission denied!</mat-error>
+  <mat-error class="big">Permission denied!</mat-error>
 </div>

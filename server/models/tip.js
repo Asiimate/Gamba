@@ -22,6 +22,12 @@ var tipSchema = mongoose.Schema({
     winningclass: {
         type: String,
         default: "Not drawn yet"
+    },
+    winningnumbers: {
+        type: Array,
+    },
+    winningdaily: {
+        type: Number,
     }
 });
 
@@ -46,7 +52,9 @@ module.exports.updateTip = function(id, tip, options, callback){
         username: tip.username,
         dailynumber: tip.dailynumber,
         winningclass: tip.winningclass,
-        numbers: tip.numbers
+        numbers: tip.numbers,
+        winningnumbers: tip.winningnumbers,
+        winningdaily: tip.winningdaily
     };
     Tip.findOneAndUpdate(query, update, options, callback);
 }
@@ -62,4 +70,9 @@ module.exports.deleteTip = function(id, callback){
 // Get Tips by username
 module.exports.getTipsByUsername = function(username, callback, limit){
     Tip.find({'username' : username}, callback).limit(limit);
+}
+
+// Get undrawn tips
+module.exports.getUndrawnTips = function(callback, limit){
+    Tip.find({'winningclass' : 'Not drawn yet'}, callback).limit(limit);
 }

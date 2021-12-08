@@ -4,12 +4,12 @@
   </mat-card-header>
   <mat-card-content>
     <div class="content">
-      <span *ngIf="!currentUser"
-        >Start your gambling journey today! Just log in!
+      <span *ngIf="!currentUser">
+        Start your gambling journey today! Just log in!
       </span>
-      <span *ngIf="currentUser && !currentUser.isEmployee"
-        >Welcome, {{ currentUser.fullname }}! You feeling lucky today?</span
-      >
+      <span *ngIf="currentUser && !currentUser.isEmployee">
+        Welcome, {{ currentUser.fullname }}! You feeling lucky today?
+      </span>
       <span *ngIf="currentUser && currentUser.isEmployee">
         Welcome, {{ currentUser.fullname }}! Time to get to work!
       </span>

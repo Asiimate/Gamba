@@ -4,4 +4,6 @@ export interface Tip {
     numbers: number[];
     date?: Date;
     winningclass?: string;
+    winningnumbers?: number[];
+    winningdaily?: number;
 }

@@ -16,10 +16,10 @@ export class LottoService {
   userSubscription: Subscription = new Subscription();
   constructor(private http: HttpClient, private authService: AuthService) {
     this.userSubscription = this.authService.user.subscribe(result => this.user = result);
-    
-   }
 
-   submitGuess(numbers: number[]){
+  }
+
+  submitGuess(numbers: number[]) {
     //building the tip that will then be submitted
     console.log("this is what lottoservice sees as user", this.user);
     var username = this.user.username;
@@ -30,11 +30,15 @@ export class LottoService {
       dailynumber: randomDaily
     }
     this.http.post<Tip>(`${this.REST_API}tips`, this.tip).subscribe(result => {
-      if(!result) return
+      if (!result) return
     });
-   }
+  }
 
-   getDailyNumber(){
-     return Math.floor(Math.random() * 9) + 1;
-   }
+  getDailyNumber() {
+    return Math.floor(Math.random() * 9) + 1;
+  }
+
+  getUserTips(username: string) {
+    return this.http.get<Tip[]>(`${this.REST_API}tips/username/${username}`)
+  }
 }
