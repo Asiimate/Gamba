@@ -21,6 +21,7 @@ export class AuthService {
 
   login(user: any) {
     user.password = Md5.hashStr(user.password);
+    user.username = user.username.toLowerCase();
     console.warn('authservice.login', user);
     return this.http.post<User>(`${this.REST_API}users/login`, user).pipe(
       switchMap(
@@ -40,6 +41,7 @@ export class AuthService {
   }
 
   register(user: any){
+    user.username = user.username.toLowerCase();
     //make user an admin, if admin is given name (for simpler testing)
     if(user.username == "admin"){
       user.isEmployee = true;

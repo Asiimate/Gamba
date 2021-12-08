@@ -1,0 +1,41 @@
+<div *ngIf="user && user.isEmployee">
+  <mat-card class="lotto-card">
+    <mat-card-header>
+      <mat-card-title>MAKE A DRAW</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="button-container">
+        <button
+          *ngFor="let number of allNumbers; index as i"
+          mat-raised-button
+          [disabled]="numbers.length == 6 && !numbers.includes(i + 1)"
+          (click)="addToDraw(i + 1)"
+        >
+          {{ number }}
+        </button>
+      </div>
+      <br>
+      <div class="big">
+        Your current picks: <span *ngFor="let num of numbers">{{ num }} </span>
+      </div>
+      <br>
+      <div class="center">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="numbers.length !== 6"
+          (click)="submitDraw()"
+        >
+          Submit Draw
+        </button>
+        <span class="small-spacer"></span>
+        <button mat-raised-button color="primary" (click)="randomize()">
+          Randomize
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="!user || !user.isEmployee">
+  <mat-error class="big">Permission denied!</mat-error>
+</div>

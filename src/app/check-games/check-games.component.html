@@ -19,6 +19,11 @@
       <br />
     </div>
   </div>
+  <div *ngIf="allTips.length == 0" class="center">
+    <br>
+    <br>
+    <span> Looks like you haven't guessed anything yet...</span>
+  </div>
 </div>
 <div *ngIf="!user || user.isEmployee">
   <mat-error class="big">Permission denied!</mat-error>
