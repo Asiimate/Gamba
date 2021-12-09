@@ -74,5 +74,14 @@ module.exports.getTipsByUsername = function(username, callback, limit){
 
 // Get undrawn tips
 module.exports.getUndrawnTips = function(callback, limit){
-    Tip.find({'winningclass' : 'Not drawn yet'}, callback).limit(limit);
+    Tip.find({"winningclass": "Not drawn yet"}, callback).limit(limit);
+}
+
+// Update undrawn tips
+module.exports.drawTips = function(winning, options, callback){
+    var update = {
+        winningnumbers: winning.winningnumbers,
+        winningdaily: winning.winningdaily
+    };
+    Tip.updateMany({"winningclass": "Not drawn yet"},  update, options, callback);
 }

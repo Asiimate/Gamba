@@ -7,8 +7,8 @@
       <div class="button-container">
         <button
           *ngFor="let number of allNumbers; index as i"
-          mat-raised-button
-          [disabled]="numbers.length == 6 && !numbers.includes(i + 1)"
+          mat-raised-button color="primary"
+          [disabled]="!numbers.includes(i + 1)"
           (click)="addToDraw(i + 1)"
         >
           {{ number }}

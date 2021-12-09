@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { NewDrawComponent } from './new-draw/new-draw.component';
+import { CheckDrawComponent } from './check-draw/check-draw.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NewDrawComponent } from './new-draw/new-draw.component';
     LoginComponent,
     RegisterComponent,
     NewDrawComponent,
+    CheckDrawComponent,
   ],
   imports: [
     BrowserModule,

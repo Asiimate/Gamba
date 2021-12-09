@@ -1,4 +1,5 @@
 export interface Tip {
+    _id?: string;
     username: string;
     dailynumber: number;
     numbers: number[];

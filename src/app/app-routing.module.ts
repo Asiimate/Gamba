@@ -1,3 +1,4 @@
+import { CheckDrawComponent } from './check-draw/check-draw.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'login', pathMatch: 'full', component: LoginComponent},
   {path: 'register', pathMatch: 'full', component: RegisterComponent},
   {path: 'draw', pathMatch: 'full', component: NewDrawComponent},
+  {path: 'draw/check', pathMatch: 'full', component: CheckDrawComponent}
 ];
 
 @NgModule({

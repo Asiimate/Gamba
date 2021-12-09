@@ -1,0 +1,37 @@
+<div *ngIf="user.isEmployee">
+  <div *ngIf="allDraws" class="game-container">
+    <div *ngIf="message">
+      <h2>{{ message }}</h2>
+    </div>
+    <div *ngFor="let draw of allDraws" class="guess">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Draw from {{ draw.date }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Drawn numbers: {{ draw.numbers }}</span> <br />
+          <span>Drawn daily number: {{ draw.dailynumber }}</span> <br />
+          <div class="center full-width">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="makeDrawFinal(draw)"
+            >
+              Make draw final
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <br />
+      <br />
+    </div>
+  </div>
+  <div *ngIf="allDraws.length == 0" class="center">
+    <br />
+    <br />
+    <span>There are no draws here :(</span>
+  </div>
+</div>
+<div *ngIf="!user || !user.isEmployee">
+  <mat-error class="big">Permission denied!</mat-error>
+</div>

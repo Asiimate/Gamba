@@ -3,14 +3,31 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 const asyncHandler = require('express-async-handler');
+const cors = require('cors');
+
+
 
 app.use(bodyParser.json());
 //Work-around for CORS-Headers
-app.use(function(req, res, next) {
+const options = {
+    allowedHeaders: [
+        'Origin',
+        'X-Requested-With',
+        'Content-Type',
+        'Accept',
+        'X-Access-Token',
+    ],
+    credentials: true,
+    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    origin: 'http://localhost:4200',
+    preflightContinue: false,
+};
+app.use(cors(options));
+/* app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});
+}); */
 User = require('./models/user');
 Draw = require('./models/draw');
 Tip = require('./models/tip');
@@ -216,6 +233,18 @@ app.get('/api/tips/undrawn', function(req, res){
         }
         res.json(tips);
         console.log(`Get undrawn tips successfull.`);
+    })
+})
+
+//Update undrawn tips
+app.put('/api/tips/draw/lol', function(req, res){
+    var draw = req.body;
+    Tip.drawTips(draw, {}, function(err, tips){
+        if(err){
+            throw err;
+        }
+        res.json(tips);
+        console.log(`Undrawn tips updated.`);
     })
 })
 

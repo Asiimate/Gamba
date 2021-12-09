@@ -1,17 +1,19 @@
+<br />
 <div *ngIf="user && !user.isEmployee">
   <div *ngIf="allTips" class="game-container">
     <div *ngFor="let tip of allTips" class="guess">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Your guess from {{ tip.date }}</mat-card-title>
+          <mat-card-title><h1>Your guess from {{ tip.date }}</h1></mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <span>Your numbers: {{ tip.numbers }}</span> <br />
           <span>Your daily number: {{ tip.dailynumber }}</span> <br />
           <span>Your winning class: {{ tip.winningclass }}</span> <br />
           <div *ngIf="tip.winningclass != 'Not drawn yet'">
-            <span>Numbers drawn: </span> <br />
-            <span>Dailynumber drawn: </span> <br />
+            <br />
+            <span>Numbers drawn: {{ tip.winningnumbers }}</span> <br />
+            <span>Daily number drawn: {{ tip.winningdaily }}</span> <br />
           </div>
         </mat-card-content>
       </mat-card>
@@ -20,8 +22,8 @@
     </div>
   </div>
   <div *ngIf="allTips.length == 0" class="center">
-    <br>
-    <br>
+    <br />
+    <br />
     <span> Looks like you haven't guessed anything yet...</span>
   </div>
 </div>

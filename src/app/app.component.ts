@@ -18,7 +18,9 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.logout();
+    if(this.user.username == undefined){
+      this.authService.logout();
+    }
   }
   ngOnDestroy(): void {
     if (this.userSubscription) {
