@@ -40,7 +40,7 @@ export class NewDrawComponent implements OnInit, OnDestroy {
 
   submitDraw() {
     this.lottoService.submitDraw(this.numbers);
-    this.router.navigate(['checkdraw']);
+    this.router.navigate(['']);
   }
 
   randomize() {

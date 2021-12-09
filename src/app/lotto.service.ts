@@ -159,8 +159,6 @@ export class LottoService {
   }
 
   setDrawNums(drawNums: any){
-    
     this.drawNums$.next(drawNums);
-    console.log("drawNums set", this.drawNums$);
   }
 }

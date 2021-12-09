@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Subject, BehaviorSubject } from 'rxjs';
+import { of, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators'
 import { User } from './models/user.model';
 import { Md5 } from 'ts-md5/dist/md5';

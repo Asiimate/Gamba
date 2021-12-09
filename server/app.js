@@ -23,11 +23,8 @@ const options = {
     preflightContinue: false,
 };
 app.use(cors(options));
-/* app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-}); */
+
+//loading mongoose Models
 User = require('./models/user');
 Draw = require('./models/draw');
 Tip = require('./models/tip');

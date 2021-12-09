@@ -10,14 +10,16 @@ Nun in folgender Reihenfolge Commands eingeben in der CLI um die benötigten Tab
 3. db.createCollection('draws')
 4. db.createCollection('tips')
 
+Es wird außerdem Node.Js benötigt (am besten mit Anbindung an die CLI)
 
 # Benötigte Schritte zum Starten der Applikation:
 1. git clone https://github.com/Asiimate/Gamba.git
 2. cd Gamba
 3. npm i
-4. ng serve //Startet das Frontend (erreichbar unter http://localhost:4200/)
-5. weitere Konsole öffnen
-6. in den Ordner server wechseln (cd server)
-7. node app (bzw. nodemon app wenn vorhanden) //Startet das Backend (erreichbar unter http://localhost:3000/)
-8. Auf http://localhost:4200/ im Browser gehen -> Login -> Registrieren
-9. Um einen Mitarbeiter-Account zu erstellen einfach als Username "admin" eingeben :)
+4. npm i -g @angular/cli
+5. ng serve //Startet das Frontend (erreichbar unter http://localhost:4200/) (Sollte das Skript in der PowerShell nicht ausführbar sein, so bitte aus folgendem Artikel die Lösung beziehen: https://windowsloop.com/enable-powershell-scripts-execution-windows-10/)
+6. weitere Konsole öffnen
+7. in den Ordner server wechseln (cd server)
+8. node app (bzw. nodemon app wenn vorhanden) //Startet das Backend (erreichbar unter http://localhost:3000/)
+9. Auf http://localhost:4200/ im Browser gehen -> Login -> Registrieren
+10. Um einen Mitarbeiter-Account zu erstellen einfach als Username "admin" eingeben :)

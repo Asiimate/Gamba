@@ -43,7 +43,7 @@ export class NewGuessComponent implements OnInit {
 
   makeGuess() {
     this.lottoService.submitGuess(this.numbers);
-    this.router.navigate(['/check']);
+    this.router.navigate(['']);
   }
 
   clearGuess() {

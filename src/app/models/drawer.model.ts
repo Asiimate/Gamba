@@ -5,7 +5,6 @@ export class Drawer{
     
     public draw(canvas: HTMLCanvasElement, numbers: number[]) {
         Chart.register(...registerables);
-        console.log("This is numbers", numbers);
         const chart = new Chart(canvas, {
             type: 'bar',
             data: {
