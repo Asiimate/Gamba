@@ -1,3 +1,4 @@
+import { ChartPageComponent } from './chart-page/chart-page.component';
 import { CheckDrawComponent } from './check-draw/check-draw.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'login', pathMatch: 'full', component: LoginComponent},
   {path: 'register', pathMatch: 'full', component: RegisterComponent},
   {path: 'draw', pathMatch: 'full', component: NewDrawComponent},
-  {path: 'draw/check', pathMatch: 'full', component: CheckDrawComponent}
+  {path: 'checkdraw', pathMatch: 'full', component: CheckDrawComponent},
+  {path: 'statistics', pathMatch: 'full', component: ChartPageComponent}
 ];
 
 @NgModule({

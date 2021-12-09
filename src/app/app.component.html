@@ -27,6 +27,12 @@
           New Draw
         </a>
       </div>
+      <div *ngIf="user && user.isEmployee">
+        <a mat-stroked-button routerLink="/checkdraw" routerLinkActive="active">
+          <mat-icon aria-hidden="false" aria-label="assessment icon">assessment</mat-icon>
+          View Draws
+        </a>
+      </div>
       <span class="spacer"></span>
       <div *ngIf="!user">
         <a mat-stroked-button routerLink="/login" routerLinkActive="active">

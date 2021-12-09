@@ -10,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  error: string = ""
   userGroup = new FormGroup({
     fullname: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
@@ -25,7 +26,10 @@ export class LoginComponent implements OnInit {
   login() {
     var user = this.userGroup.getRawValue();
     this.authService.login(user).subscribe(result => {
-      if(!result) return;
+      if(!result) {
+        this.error="Login failed. Please try again.";
+        return
+      };
       this.router.navigate([''])
     });
     

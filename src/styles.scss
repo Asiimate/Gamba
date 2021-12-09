@@ -16,6 +16,7 @@ body {
     max-width: 800px;
     min-width: 150px;
     margin: 10% auto;
+    margin-bottom: 5%;
   }
 .full-width{
     width: 100%;
@@ -33,6 +34,12 @@ body {
 
 div.center {
     text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+div.center > div{
+    float:right;
 }
 
 .guess{

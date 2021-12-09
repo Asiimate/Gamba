@@ -4,7 +4,7 @@ import { User } from './models/user.model';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +16,14 @@ export class LottoService {
   tip!: Tip;
   draw!: Draw;
   userSubscription: Subscription = new Subscription();
+  drawNums$ = new BehaviorSubject<any>([]);
   constructor(private http: HttpClient, private authService: AuthService) {
     this.userSubscription = this.authService.user.subscribe(result => this.user = result);
 
+  }
+
+  get drawNums() {
+    return this.drawNums$.asObservable();
   }
 
   submitGuess(numbers: number[]) {
@@ -69,14 +74,12 @@ export class LottoService {
     };
     await this.http.put(`${this.REST_API}tips/draw/lol`, winning).subscribe(result => {
       if (!result) return
-      console.log("This is put speaking");
     });
     await this.delay(100);
     let undrawn!: Tip[];
     let updates: any[] = [];
     await this.getUndrawnTips().subscribe(result => {
       if (!result) return
-      console.log("This is get speaking");
       undrawn = result;
       undrawn.forEach(tip => {
         var rightNumbers = 0;
@@ -134,8 +137,30 @@ export class LottoService {
     })
   }
 
-  delay(ms: number){
-    return new Promise( resolve => setTimeout(resolve, ms));
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
-  
+
+  getNumbersOfDraws(): any {
+    let allDraws: Draw[] = [];
+    this.http.get<Draw[]>(`${this.REST_API}draws`).subscribe(result => {
+      if (!result) return;
+      allDraws = result;
+      let allDrawNumbers: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      allDraws.forEach(draw => {
+        draw.numbers.forEach(num => {
+          allDrawNumbers[num - 1] = allDrawNumbers[num - 1] + 1;
+        });
+      });
+      console.log("Setting drawNums", allDrawNumbers);
+      this.setDrawNums(allDrawNumbers);
+      return allDrawNumbers
+    });
+  }
+
+  setDrawNums(drawNums: any){
+    
+    this.drawNums$.next(drawNums);
+    console.log("drawNums set", this.drawNums$);
+  }
 }

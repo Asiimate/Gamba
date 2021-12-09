@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { NewDrawComponent } from './new-draw/new-draw.component';
 import { CheckDrawComponent } from './check-draw/check-draw.component';
+import { ChartPageComponent } from './chart-page/chart-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CheckDrawComponent } from './check-draw/check-draw.component';
     RegisterComponent,
     NewDrawComponent,
     CheckDrawComponent,
+    ChartPageComponent,
   ],
   imports: [
     BrowserModule,
